@@ -13,5 +13,5 @@ jobs:
               uses: ballerina-platform/ballerina-action/@swan-lake-connector-release
               with:
                   args:
-                      build -a -c --skip-tests --sourceroot github.webhook
+                      build -c --skip-tests --sourceroot github.webhook
 
