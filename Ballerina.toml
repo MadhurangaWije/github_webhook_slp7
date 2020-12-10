@@ -1,0 +1,7 @@
+[package]
+org = "kanishka"
+name = "github_webhook_slp7"
+version = "0.1.0"
+
+[build-options]
+observabilityIncluded = true

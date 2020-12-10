@@ -1,0 +1,32 @@
+name: Deployment
+
+on:
+  release:
+    types: [published]
+
+jobs:
+    build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Ballerina Build
+              uses: ballerina-platform/ballerina-action/@swan-lake-release
+              with:
+                  args:
+                      build -c --skip-tests 
+                                   
+            - name: Ballerina Push
+              uses: ballerina-platform/ballerina-action/@swan-lake-release
+              with:
+                  args:
+                      push
+              env:
+                  BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+                  GITHUB_TOPIC: ${{secrets.GITHUB_TOPIC}}
+                  GITHUB_SECRET: ${{secrets.GITHUB_SECRET}}
+                  GITHUB_CALLBACK: ${{secrets.GITHUB_CALLBACK}}
+                  GITHUB_USERNAME: ${{secrets.GITHUB_USERNAME}}
+                  GITHUB_REPO_NAME: ${{secrets.GITHUB_REPO_NAME}}
