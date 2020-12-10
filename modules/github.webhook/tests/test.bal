@@ -47,9 +47,9 @@ http:BearerAuthHandler bearerHandler = new(oauth2Provider);
 @websub:SubscriberServiceConfig {
     path: "/github",
     subscribeOnStartUp: true,
-    target: [HUB, config:getAsString("GITHUB_TOPIC")],
-    secret: config:getAsString("GITHUB_SECRET"),
-    callback: config:getAsString("GITHUB_CALLBACK"),
+    target: [HUB, config:getAsString("TOPIC_GITHUB")],
+    secret: config:getAsString("SECRET_GITHUB"),
+    callback: config:getAsString("CALLBACK_GITHUB"),
     hubClientConfig: {
         auth: {
             authHandler: bearerHandler
@@ -100,8 +100,8 @@ function testWebhookRegistration() {
     test:assertEquals(webhookHookType, "Repository", msg = "expected a repository hook to be added");
 }
 
-string createdIssueUsername = config:getAsString("GITHUB_USERNAME");
-string createdIssueRepoName = config:getAsString("GITHUB_REPO_NAME");
+string createdIssueUsername = config:getAsString("USERNAME_GITHUB");
+string createdIssueRepoName = config:getAsString("REPO_NAME_GITHUB");
 string createdIssueTitle = "This is a test issue";
 string[] createdIssueLabelArray = ["bug", "critical"];
 string createdIssueAssignee = createdIssueUsername;

@@ -19,7 +19,7 @@ The following sections provide you details on how to use the `webhook`.
 ## Compatibility
 |                             |       Version               |
 |:---------------------------:|:---------------------------:|
-| Ballerina Language          |     Swan Lake Preview1      |
+| Ballerina Language          |     Swan Lake Preview7      |
 
 ## Feature Overview
 
